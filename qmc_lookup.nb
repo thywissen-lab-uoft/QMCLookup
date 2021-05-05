@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    305933,       5853]
-NotebookOptionsPosition[    303417,       5805]
-NotebookOutlinePosition[    303758,       5820]
-CellTagsIndexPosition[    303715,       5817]
+NotebookDataLength[    308643,       5918]
+NotebookOptionsPosition[    305801,       5865]
+NotebookOutlinePosition[    306142,       5880]
+CellTagsIndexPosition[    306099,       5877]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -5784,26 +5784,86 @@ Cell["Fitting Via Lookup Table", "Subsection",
 cee40b584684"],
 
 Cell["\<\
-The fit comes from using lookup tables outputed by the QUEST QMC analysis \
+The fit comes from using lookup tables outputted by the QUEST QMC analysis \
 that is done ahead of time. The results of the QMC calculation for varying \
-temperature is stored in a text file.\
+temperature is stored in a text file. 
+
+The fit output is report as (Nx6) data matrix. It is organized as \
+(temperature (\[Beta]),?,?,?,?,?)
+
+Import the data.\
 \>", "Text",
  CellChangeTimes->{{3.8292152290134616`*^9, 3.8292152609394903`*^9}, {
-  3.8292152910843053`*^9, 
-  3.8292153294617167`*^9}},ExpressionUUID->"8fa250ee-75eb-4d26-a166-\
+  3.8292152910843053`*^9, 3.8292153294617167`*^9}, {3.8292170853746915`*^9, 
+  3.829217098505866*^9}, {3.8292171893113966`*^9, 
+  3.8292172598886256`*^9}},ExpressionUUID->"8fa250ee-75eb-4d26-a166-\
 e620e2503973"],
 
-Cell[BoxData[
+Cell[BoxData[{
  RowBox[{
-  RowBox[{"fname", "=", "\"\<2.5Er 206G\\result.txt\>\""}], ";"}]], "Input",
- CellChangeTimes->{{3.829215333136067*^9, 3.829215375809886*^9}},
+  RowBox[{"ffitname", "=", "\"\<2.5Er_206G/results.txt\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fitdata", "=", 
+   RowBox[{"ToExpression", "[", 
+    RowBox[{"Import", "[", 
+     RowBox[{"ffitname", ",", "\"\<TSV\>\""}], "]"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.829215333136067*^9, 3.829215375809886*^9}, {
+  3.8292169844267473`*^9, 3.8292170261451507`*^9}, {3.829217063369217*^9, 
+  3.82921709403082*^9}, {3.8292171645659714`*^9, 3.8292171774657965`*^9}, {
+  3.8292172773070602`*^9, 3.8292172791348314`*^9}},
  CellLabel->
-  "In[101]:=",ExpressionUUID->"a8b20547-a4cd-4086-b810-bcb797c86463"]
+  "In[156]:=",ExpressionUUID->"a8b20547-a4cd-4086-b810-bcb797c86463"],
+
+Cell["\<\
+Display a list of all temperatures that are included in the calculations (in \
+units of \[Beta]).\
+\>", "Text",
+ CellChangeTimes->{{3.829217284641511*^9, 3.829217297529554*^9}, {
+  3.829217497470086*^9, 
+  3.8292175131778154`*^9}},ExpressionUUID->"b2914967-8f35-4af6-8a77-\
+fbfb8706eb9a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"temp\[Beta]list", "=", 
+  RowBox[{"Union", "[", 
+   RowBox[{"fitdata", "\[LeftDoubleBracket]", 
+    RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"temp\[Beta]num", "=", 
+   RowBox[{"Length", "[", "temp\[Beta]list", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8292172987093706`*^9, 3.829217323845845*^9}, {
+  3.8292173807130766`*^9, 
+  3.829217490215376*^9}},ExpressionUUID->"a80d87fb-e1c1-4e08-af6e-\
+e2ee2528ec62"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.0183299389002034`", ",", "1.0626992561105204`", ",", 
+   "1.1111111111111107`", ",", "1.1641443538998832`", ",", 
+   "1.222493887530562`", ",", "1.2870012870012868`", ",", 
+   "1.3586956521739129`", ",", "1.4388489208633093`", ",", 
+   "1.529051987767584`", ",", "1.6313213703099512`", ",", 
+   "1.7482517482517483`", ",", "1.883239171374765`", ",", 
+   "2.0408163265306127`", ",", "2.2271714922049`", ",", "2.450980392156863`", 
+   ",", "2.7247956403269757`", ",", "3.067484662576687`", ",", 
+   "3.508771929824561`", ",", "4.098360655737705`", ",", "4.926108374384236`",
+    ",", "6.172839506172839`", ",", "8.264462809917356`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.829217324127892*^9, {3.8292173905123696`*^9, 3.8292174523312693`*^9}, {
+   3.829217483922072*^9, 3.829217487010339*^9}},
+ CellLabel->
+  "Out[187]=",ExpressionUUID->"ad8866cc-7761-4f9d-8ee4-4c3a3e91ce2d"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{958, 998},
+WindowSize->{962, 998},
 WindowMargins->{{-7, Automatic}, {Automatic, 0}},
 FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
 StyleDefinitions->"Default.nb"
@@ -5850,8 +5910,13 @@ Cell[11749, 317, 290704, 5456, 336, "Output",ExpressionUUID->"5db9992b-33fb-4153
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[302502, 5779, 223, 4, 53, "Subsection",ExpressionUUID->"705ecc92-ce15-4997-8994-cee40b584684"],
-Cell[302728, 5785, 397, 8, 56, "Text",ExpressionUUID->"8fa250ee-75eb-4d26-a166-e620e2503973"],
-Cell[303128, 5795, 249, 5, 28, "Input",ExpressionUUID->"a8b20547-a4cd-4086-b810-bcb797c86463"]
+Cell[302728, 5785, 621, 14, 144, "Text",ExpressionUUID->"8fa250ee-75eb-4d26-a166-e620e2503973"],
+Cell[303352, 5801, 656, 15, 48, "Input",ExpressionUUID->"a8b20547-a4cd-4086-b810-bcb797c86463"],
+Cell[304011, 5818, 298, 7, 34, "Text",ExpressionUUID->"b2914967-8f35-4af6-8a77-fbfb8706eb9a"],
+Cell[CellGroupData[{
+Cell[304334, 5829, 489, 11, 48, "Input",ExpressionUUID->"a80d87fb-e1c1-4e08-af6e-e2ee2528ec62"],
+Cell[304826, 5842, 923, 17, 52, "Output",ExpressionUUID->"ad8866cc-7761-4f9d-8ee4-4c3a3e91ce2d"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
