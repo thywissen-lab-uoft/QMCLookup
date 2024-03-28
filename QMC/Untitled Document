@@ -1,0 +1,6 @@
+declare -x MKLROOT="/opt/intel/compilers_and_libraries_2018.0.128/linux/mkl"
+declare -x NLSPATH="/opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/lib/intel64_lin/locale/%l_%t/%N"
+declare -x LIBRARY_PATH="/opt/intel/compilers_and_libraries_2018.0.128/linux/tbb/lib/intel64_lin/gcc4.7:/opt/intel/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64_lin:/opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/lib/intel64_lin"
+declare -x LD_LIBRARY_PATH="/opt/intel/compilers_and_libraries_2018.0.128/linux/tbb/lib/intel64_lin/gcc4.7:/opt/intel/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64_lin:/opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/lib/intel64_lin"
+declare -x CPATH="/opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/include"
+

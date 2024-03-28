@@ -1,0 +1,2 @@
+"tempβ"	"μ"	"density"	"err"	"doublon"	"err"	"int_energy"	"err"	"kinetic_energy"	"err"	"total_energy"	"err"
+0.6666622222518517	0.50001	1.165142	0.	0.33938899	0.	0.	0.	0.58258267	0.	0.58258267	0.

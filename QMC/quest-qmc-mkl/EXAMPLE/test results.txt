@@ -1,0 +1,50 @@
+32 bit:
+small.in 8*8
+Running time:   95.4140015     (second)
+
+median.in 10*10
+Running time:   289.466003     (second)
+
+large.in 16*16
+Running time:   4619.92480     (second)
+
+
+
+64 bit:
+small.in 8*8
+Running time:   55.8440018     (second)
+
+median.in 10*10
+Running time:   171.945999     (second)
+
+
+
+64 bit: multi core
+small.in 8*8
+Running time:   16.6229992     (second)
+
+median.in 10*10
+Running time:   41.5009995     (second)
+
+large.in 16*16
+Running time:   489.351990     (second)
+
+extra large.in 30*30
+Running time:   16741.0195     (second)
+
+
+4*4
+Running time:   1.34500003     (second)
+
+6*6
+Running time:   4.79600000     (second)
+
+
+
+
+
+
+
+
+
+
